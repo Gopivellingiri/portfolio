@@ -1,0 +1,436 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --primary-color: hsl(220, 20%, 97%);
+    --secondary-color: hsl(41, 98%, 50%);
+    --font-colors: hsl(216, 97%, 12%);
+    --section-colors: hsl(220, 100%, 99%);
+
+    --h1-font-size: 2.986rem;
+    --h4-font-size: 1.728rem;
+    --h3-font-size: 2.074rem;
+    --h6-font-size: 1.2rem;
+    --normal-font-size: 1rem;
+
+    --padd-top-sec: 9.4rem;
+
+    --margin-small: 0.5rem;
+    --margin-medium: 1rem;
+    --margin-large: 2rem;
+    --margin-xlarge: 4rem;
+
+    --padding-small: 0.5rem;
+    --padding-medium: 1rem;
+    --padding-large: 2rem;
+    --padding-xlarge: 4rem;
+
+    --box-shadow-small: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --box-shadow-medium: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Poppins", sans-serif;
+    line-height: 1.6;
+    font-size: var(--normal-font-size);
+    font-weight: 500;
+     color: var(--font-colors);;
+}
+
+h1 {
+    font-size: var(--h1-font-size);
+    font-weight: 700;
+    color: var(--font-colors);
+   
+}
+h4 {
+    font-size: var(--h4-font-size);
+    font-weight: 700;
+    color: var(--font-colors);
+}
+h3{
+    font-size: var(--h4-font-size);
+    font-weight: 600;
+    text-align: center;
+    color: var(--font-colors);
+}
+h6{
+    font-size: var(--h6-font-size);
+    font-weight: 600;
+    color: var(--font-colors);
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 20px; 
+}
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 3rem;
+    
+    
+}
+.padd-top{
+    padding: var(--padd-top-sec) 0;
+}
+.title-padd{
+    padding: var(--padding-medium) 0 ;
+}
+.margin-top{
+    margin-top: var(--margin-medium);
+}
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    font-size: var(--normal-font-size);
+    font-weight: 600;
+    text-align: center;
+    border-radius: 2rem;
+    cursor: pointer;
+    
+}
+.btn:hover {
+    animation-name: button-push;
+    animation-duration: 0.3s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+  }
+  @keyframes button-push {
+    50% {
+      transform: scale(0.8);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+.btn-yellow{
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+}
+
+.btn-outline {
+    border: 2px solid var(--secondary-color);
+    color: var(--font-colors);
+}
+
+/* ================ Nav section ============ */
+.nav-section{
+    background-color: var(--primary-color);
+    
+}
+header {
+    width: 100%;
+    position:fixed;
+    top: 0;
+    z-index: 100;
+
+}
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:var(--padding-medium) 0;
+}
+.nav-links .nav-link {
+    font-size: var(--normal-font-size);
+    font-weight: 600;
+    color: var(--font-colors);
+    letter-spacing:1px;
+    text-transform: uppercase;
+    margin: var(--margin-medium);
+   
+}
+.nav-links ul{
+    display: flex;
+    align-items: center;
+    column-gap: 1.5rem;
+}
+/* typing text animation */
+
+.typing{
+    position: relative;
+}
+
+#text::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--primary-color);
+    border-left: 2px solid var(--font-colors);
+    animation: animate 4s steps(12) infinite;
+}
+@keyframes animate {
+    40%, 60% {
+        left: calc(100% + 6px);
+    }
+    100% {
+        left: 0%;
+    }
+}
+/* ================ Hero section ============ */
+
+.hero-section {
+    height: 100vh;
+    place-content: center;
+    background: var(--primary-color) url("images/shape 1-01.png") no-repeat center / cover;
+    object-fit: cover;
+    position: relative;
+}
+.hero-content {
+    flex: 0 0 50%;
+    max-width: 50%;
+
+}
+.hero-img {
+    flex: 0 0 50%;
+    max-width: 50%;
+    z-index: 2;
+    
+}
+.hero-img img{
+    width: 100%;
+}
+.btn-group {
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+   
+    padding: 0;
+    margin: 0;
+    
+}
+.btn-group li {
+    display: flex;
+    align-items: center;
+}
+
+.btn-group li a {
+    font-weight: 600;
+    color: var(--font-colors);
+    display: flex; /* Added */
+    align-items: center; /* Added */
+}
+.btn-group li .play-button {
+    font-size: 2rem;
+    margin-right: 0.5rem;
+    
+}
+
+.btn-group li:nth-child(3) {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.btn-group li:nth-child(3)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left:-20%;
+    height: 2rem;
+    width: .1rem;
+    background-color: var(--font-colors);
+    color: var(--font-colors);
+}
+
+.portfolio-links{
+    position: absolute;
+    bottom: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-end;
+    align-items: center;
+    color: var(--font-colors);
+    height: 300px;
+    background-color: var(--primary-color);
+}
+.portfolio-links a{
+    color: var(--font-colors);
+    font-size: 1.3rem;
+}
+.portfolio-links span {
+    display: flex;
+    align-items: center;
+}
+.portfolio-links .rotate{
+    transform: rotate(-90deg);
+    font-weight: 600;
+    margin-bottom: 8rem;
+    position: relative;
+    
+}
+ .portfolio-links .rotate::before{
+    content: '';
+    position: absolute;
+    left: -2.5rem;
+    
+    height: 4rem;
+    width: 0.2rem;
+    transform: rotate(-90deg);
+    background-color: var(--font-colors);
+} 
+/* ================= SCROLL DOWN ARROW ================ */
+
+.arrow-container {
+    width: 25px;
+    position: absolute;
+    bottom: 5rem;
+    left: 50%;
+    animation: bounce 1600ms infinite cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    cursor: pointer;
+    height: 20px;
+    margin: 0 auto;
+    
+    
+  }
+  
+  .arrow-down {
+    height: 4px;
+    background: var(--font-colors);
+    transform: rotate(45deg);
+    transform-origin: 0% 0%;
+    border-radius: 5px;
+
+  }
+  .arrow-down:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 100%;
+    border-radius: 5px;
+    background: var(--font-colors);
+    transform: rotate(-90deg);
+    transform-origin: 0% 100%;
+  }
+  
+  @keyframes bounce {
+  50% {
+      transform: translateY(-15px);
+    }
+  }
+
+/* ================= about me ================ */
+
+.img-area{
+    flex: 0 0 50%;
+    max-width: 50%;
+   text-align: center;
+}
+.about-text{
+    flex: 0 0 50%;
+    max-width: 50%;
+    
+}
+.img-element{
+    position: relative;
+    z-index: 1;
+}
+
+.img-element::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 40%;
+    width: 4rem;
+    height: 4rem;
+    background: url("images/elements.png") no-repeat center / cover;
+    z-index: -1;
+   
+    
+}
+
+.about-me {
+    
+    background: var(--primary-color) url("images/dots-01.png") no-repeat center / cover;
+    object-fit: cover;
+
+}
+.about-title{
+    text-align: center;
+    max-width: 80%;
+    margin:0 auto;
+  
+}
+.about-text h3{
+ text-align: left;
+}
+.about-text {
+    padding: var(--padding-medium);
+}
+.details-groups li{
+    display: flex;
+    align-items: center;
+    margin: var(--margin-medium) 0;
+}
+.details-groups b {
+    flex: 0 0 25%;
+    text-align: left;
+}
+.buttons{
+    display: flex;
+    align-items: center;
+    column-gap: var(--padding-small);
+}
+
+/* ============== skills =================== */
+
+.skill-section{
+    background: var(--section-colors)
+}
+.skill-bar {
+    
+    height: 12px;
+    width: 100%;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.1);
+}
+.skills{
+flex: 0 0 25%;
+max-width: 25%;
+}
+.skills img{
+    height: 50px;
+    width: 50px;
+
+}
+.skill-bar .skill-per{
+    position: relative;
+    display: block;
+    height: 100%;
+    width: 80%;
+    border-radius: 6px;
+    background: var(--font-colors);
+}
+
+.skill-per .tooltip {
+    position: absolute;
+    font-size: 1.5rem;
+    font-weight: 600;
+    right: -24px;
+    top: -60px;
+    background-color: var(--secondary-color);
+    padding: .3rem .5rem;
+}
+
