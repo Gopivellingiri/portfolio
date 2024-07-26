@@ -25,12 +25,15 @@
     --padding-xlarge: 4rem;
 
     --box-shadow-small: 0 1px 3px rgba(0, 0, 0, 0.1);
-    --box-shadow-medium: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --box-shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
 }
 
 body{
@@ -361,6 +364,23 @@ header {
     
 }
 
+.latest.img-element::before {
+    left: 38%;
+}
+
+.skill-title.img-element::before {
+    left: 45%;
+}
+.education-element.img-element::before{
+    left: 35%;
+}
+.service-element.img-element::before{
+    left: 42%;
+}
+.contact-ele.img-element::before{
+    left: 47%;
+}
+
 .about-me {
     
     background: var(--primary-color) url("images/dots-01.png") no-repeat center / cover;
@@ -397,7 +417,7 @@ header {
 /* ============== skills =================== */
 
 .skill-section{
-    background: var(--section-colors)
+    background: var(--section-colors);
 }
 .skill-bar {
     
@@ -407,8 +427,8 @@ header {
     background: rgba(0, 0, 0, 0.1);
 }
 .skills{
-flex: 0 0 25%;
-max-width: 25%;
+    width: 100%;
+    max-width: 100%;
 }
 .skills img{
     height: 50px;
@@ -422,15 +442,360 @@ max-width: 25%;
     width: 80%;
     border-radius: 6px;
     background: var(--font-colors);
+    color: var(--primary-color);
+    animation: progress 0.7s ease-in-out forwards;
+    opacity: 0;
 }
+.skill-per.illustrator {
+    width: 80%;
+    animation-delay: 0.1s;
+}
+.skill-per.indesign{
+    width: 60%;
+    animation-delay: 0.2s;
+}
+.skill-per.xd{
+    width: 50%;
+    animation-delay: 0.3s;
+}
+.skill-per.html{
+    width: 60%;
+    animation-delay: 0.4s;
+}
+.skill-per.css{
+    width: 60%;
+    animation-delay: 0.5s;
+}
+.skill-per.js{
+    width: 55%;
+    animation-delay: 0.6s;
+}
+@keyframes progress {
+    0% {
+        width: 0;
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 
 .skill-per .tooltip {
     position: absolute;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 600;
     right: -24px;
     top: -60px;
+    border-radius: .5rem;
     background-color: var(--secondary-color);
     padding: .3rem .5rem;
+    z-index: 1;
+}
+.skill-per .tooltip::before {
+    content: '';
+    position: absolute;
+    top: 1.5rem;
+    left: 1.1rem;
+    height: 1.5rem;
+    width: 1.5rem;
+    background: var(--secondary-color);
+    z-index: -1;
+    transform: rotate(45deg);
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    margin-top: var(--margin-medium);
+    gap: var(--margin-medium);
 }
 
+/* ============== Portfolio section =================== */
+
+.portfolio-section{
+    background: var(--primary-color);
+}
+
+.portfolio-filter button{
+    border: none;
+    background-color: transparent;
+    font-size: var(--h6-font-size);
+    font-weight: 600;
+    margin: 0 var(--margin-large);
+    font-size: var(--normal-font-size);
+    cursor: pointer;
+    color: var(--font-colors);
+    white-space: nowrap;
+    transition: 0.3s;
+
+}
+.portfolio-filter-item.hide {
+    display: none;
+}
+.portfolio-filter-item.show {
+    display: block;
+    animation: showItem 0.5s ease;
+}
+.portfolio-filter button.active{
+    color: var(--secondary-color);
+    position: relative;
+}
+
+@keyframes showItem {
+    0%{
+      transform: scale(0.6);
+      opacity: 0;
+    }
+    100% {
+      transform:scale(1);
+      opacity: 1;
+    }
+  }
+  
+
+.portfolio-filter button.active::before {
+    content:'' ;
+    position: absolute;
+    top: 50%;
+    left: -2rem;
+    height: 0.5rem;
+    width: 0.5rem;
+    border-radius: 50%;
+    background: var(--secondary-color);
+    transform: translateY(-50%);
+}
+.img-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    
+   
+    
+}
+.img-container img{
+    width: 100%;
+    
+}
+.mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0 , 0, 0, 0.6);
+    
+    opacity: 0;
+    transition: 0.3s;
+}
+.term {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    color: #fff;
+    background-color: var(--secondary-color);
+    padding: 0.3rem 0.6rem;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transform: translateY(-50px);
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.img-container:hover .term{
+    transform: translateY(0);
+    opacity: 1;
+
+}
+.img-container:hover .mask{
+    opacity: 1;
+}
+
+/* ============== Education & Experience =================== */
+
+.experience {
+    background: var(--primary-color);
+}
+.experience-education {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    
+}
+.experience
+{
+    padding: 0 3rem;
+    border-left: 2px solid var(--font-colors);
+    position: relative;
+}
+.experience .shade{
+    position: absolute;
+    font-size: 3.5rem;
+    top: 25%;
+    left: -40%;
+    text-transform: uppercase;
+    color:var(--font-colors);
+    opacity: 0.1;
+    transform: rotate(-90deg);
+}
+.experience .shade-2{
+    position: absolute;
+    font-size: 3.5rem;
+    top: 28%;
+    right: 18%;
+    text-transform: uppercase;
+    color:var(--font-colors);
+    opacity: 0.1;
+    transform: rotate(-90deg);
+}
+
+.education{
+    padding: 0 3rem;
+    border-right: 2px solid var(--font-colors);
+}
+
+.box{
+    position: relative;
+    margin-bottom: var(--margin-large);
+    padding: 1.5rem;
+    border: 1px dashed var(--secondary-color);
+    min-height: 13.5rem;
+}
+.box span{
+    color: var(--secondary-color);
+}
+.box:last-child{
+    margin-bottom: 0;
+}
+.box:hover{
+    box-shadow: var(--box-shadow-medium);
+}
+
+.ex-box::before{
+    content: '';
+    position: absolute;
+    top: -1.5rem;
+    left: -15.5%;
+    width: 3rem;
+    height: 3rem;
+    background: url("images/yellow-dot.png") no-repeat center;
+    
+}
+.edu-box::after{
+    content: '';
+    position: absolute;
+    top: -1.5rem;
+    right: -15.5%;
+    width: 3rem;
+    height: 3rem;
+    background: url("images/yellow-dot.png") no-repeat center;
+    
+}
+
+/* ============== services =================== */
+
+.services-section{
+    background: var(--primary-color);
+}
+.services-box {
+    flex: 0 0 25%;
+    max-width: 25%;
+    text-align: center;
+    padding: var(--padding-medium) var(--padding-small);
+   
+    transition: box-shadow 0.3s ease;
+    border-radius: .5rem;
+}
+.services-box:hover{
+    box-shadow: var(--box-shadow-medium);
+}
+
+/* ============== contact=================== */
+
+.contact-section{
+    background: var(--primary-color);
+}
+.contact-text{
+    flex: 0 0 40%;
+    max-width: 40%;
+}
+.contact-text .address{
+    text-align: left;
+}
+.contact-form {
+    flex: 0 0 60%;
+    max-width: 60%;
+  }
+  
+  .contact-data {
+    display: grid;
+    row-gap: 2rem;
+  }
+  .contact-subtitle {
+    margin-bottom: var(--margin-medium);
+  }
+  .contact-description {
+    display: inline-flex;
+    align-items: center;
+    column-gap: 0.5rem;
+  }
+  .contact-icon {
+    font-size: 1.2rem;
+  }
+  .contact-inputs {
+    display: grid;
+    row-gap: 2rem;
+    margin-bottom: var(--margin-medium);
+  }
+  .contact-content {
+    position: relative;
+    height: 3rem;
+    border-bottom: 2px solid var(--font-colors);
+  }
+  .contact-content span {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    content: "";
+    height: 2px;
+    transition: 0.5s;
+    width: 0;
+    background: var(--secondary-color);
+  }
+  .contact-input:focus ~ span {
+    width: 100%;
+  }
+  .contact-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 1rem 1rem 1rem 0;
+    background: none;
+    color: #fff;
+    outline: none;
+    border: none;
+    z-index: 1;
+  }
+  .contact-label {
+    position: absolute;
+    top: 0.4rem;
+    width: 100%;
+    font-size: var(--normal-font-size);
+    transition: 0.3s;
+  }
+  .contact-area {
+    height: 7rem;
+  }
+  .contact-area textarea {
+    resize: none;
+  }
+  .contact-input:focus + .contact-label {
+    top: -0.75rem;
+    left: 0;
+    z-index: 10;
+    color: var(--color-primary);
+  }
+  .contact-icon{
+    font-size: 1.5rem;
+    margin-right: var(--margin-small);
+  }
